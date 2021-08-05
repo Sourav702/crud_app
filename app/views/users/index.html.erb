@@ -1,0 +1,30 @@
+<h1>All Users List</h1>
+<%= form_tag users_path, :method => 'get' do%>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search",class:'btn btn-info' %>
+<% end %>
+<br />
+ <%= link_to 'Create New',new_user_path,class:'btn btn-primary' %>
+<br /><br /><br />
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Operation</th>
+  </thead>
+  <tbody>
+    <% @users.each do |us| %>
+    <tr>
+      <td><%= us.name %></td>
+      <td><%= us.email %></td>
+      <td><%= us.phone %></td>
+      <td>
+      <%= link_to 'View',user_path(us),class:'btn btn-info' %>
+      <%= link_to 'Edit',edit_user_path(us),class:'btn btn-primary' %>
+    <%= link_to 'Delete',us,method: :delete,data: { confirm:"Ary you sure to delete" },class:'btn btn-danger' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

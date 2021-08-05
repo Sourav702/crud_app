@@ -1,0 +1,20 @@
+<h1>Update User</h1>
+<%= form_for @user do |u| %>
+<div>
+<%= u.label :name %>
+<%= u.text_field :name,required: true,class:"form-control col-md-6" %><br />
+</div>
+<div>
+<%= u.label :Email %>
+<%= u.text_field :email,required: true,class:"form-control col-md-6" %><br />
+</div>
+<div>
+<%= u.label :Phone %>
+<%= u.text_field :phone,required: true,class:"form-control col-md-6" %>
+</div>
+<div>
+<br />
+<%= u.submit %>  
+<%= link_to 'Back',users_path,class:'btn btn-dark' %>
+</div>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Add New User</h1>
+<%= form_for @user do |u| %>
+<div>
+<%= u.label :name %>
+<%= u.text_field :name,required: true, placeholder: "Enter Your Name",class:"form-control col-md-6" %><br />
+</div>
+<div>
+<%= u.label :Email %>
+<%= u.text_field :email,required: true, placeholder: "Enter Your Email",class:"form-control col-md-6" %><br />
+</div>
+<div>
+<%= u.label :Phone %>
+<%= u.text_field :phone,required: true, placeholder: "Enter Your Phone",class:"form-control col-md-6" %>
+</div>
+<br />
+<div>
+<%= u.submit %>
+<%= link_to 'Back',users_path,class:'btn btn-dark' %>
+</div>
+<br />
+<% end %>
+<% if @user.errors.any? %>
+<%= @user.errors.full_messages %>
+<% end %>
